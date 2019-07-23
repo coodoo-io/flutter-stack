@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:stack/profile.dart';
+import 'package:stack/stack.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +12,25 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Stack Beispiele'),
+    );
+  }
+
+  openStackPage(context) {
+    Navigator.push(
+      context,
+      new MaterialPageRoute(
+        builder: (BuildContext context) => new StackPage(),
+      ),
+    );
+  }
+
+  openProfileStackPage(context) {
+    Navigator.push(
+      context,
+      new MaterialPageRoute(
+        builder: (BuildContext context) => new ProfileStackPage(),
+      ),
     );
   }
 }
@@ -33,7 +53,14 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
+          children: <Widget>[
+            RaisedButton(
+              onPressed: () => MyApp().openStackPage(context),
+            ),
+            RaisedButton(
+              onPressed: () => MyApp().openProfileStackPage(context),
+            ),
+          ],
         ),
       ),
     );
