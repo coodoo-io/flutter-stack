@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:stack/card.dart';
 import 'package:stack/profile.dart';
 import 'package:stack/stack.dart';
+
+import 'indexed.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,6 +24,24 @@ class MyApp extends StatelessWidget {
       context,
       new MaterialPageRoute(
         builder: (BuildContext context) => new StackPage(),
+      ),
+    );
+  }
+
+  openCardStackPage(context) {
+    Navigator.push(
+      context,
+      new MaterialPageRoute(
+        builder: (BuildContext context) => new CardStackPage(),
+      ),
+    );
+  }
+
+  openIndexedStackPage(context) {
+    Navigator.push(
+      context,
+      new MaterialPageRoute(
+        builder: (BuildContext context) => new IndexedStackPage(),
       ),
     );
   }
@@ -55,10 +76,20 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             RaisedButton(
+              child: Text('Beispiel'),
               onPressed: () => MyApp().openStackPage(context),
             ),
             RaisedButton(
+              child: Text('Beispiel Karte'),
+              onPressed: () => MyApp().openCardStackPage(context),
+            ),
+            RaisedButton(
+              child: Text('Beispiel Profil'),
               onPressed: () => MyApp().openProfileStackPage(context),
+            ),
+            RaisedButton(
+              child: Text('Beispiel Indexed Stack'),
+              onPressed: () => MyApp().openIndexedStackPage(context),
             ),
           ],
         ),
